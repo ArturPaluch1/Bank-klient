@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 12.5" name="LINQBazaBank">
+  <DataContextMoniker Name="/LINQBazaBankDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0f118b7c-6ded-45bb-9ec7-653a8a150475" absoluteBounds="3.5, 5.875, 2, 3.1170068359374996">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Klienci" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f8f5169b-227d-4843-9533-c672866de280" absoluteBounds="3.515, 6.335, 1.9700000000000002, 2.5570068359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9654e83d-38b3-4b34-92fd-e582603bda57" absoluteBounds="6.375, 5.875, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Kredyty" />
+      <nestedChildShapes>
+        <elementListCompartment Id="171f48db-d2d1-4abc-8596-ae0c9c6a99ce" absoluteBounds="6.39, 6.3350000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3868b004-0035-40c0-bfb7-d6ab25f09348" absoluteBounds="0.75, 6.625, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Lokaty" />
+      <nestedChildShapes>
+        <elementListCompartment Id="54965726-8ede-49df-a66b-51f81677d41a" absoluteBounds="0.76499999999999968, 7.0850000000000009, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="b038746e-c393-42d5-84d3-c08bff8c66ec" absoluteBounds="3.5, 9.5, 2, 2.7324039713541657">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Pracownicy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a326d810-b5c7-4242-9ac5-437c304e7472" absoluteBounds="3.515, 9.96, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9ee670e0-f7ea-4e24-b8ae-bb0eb337e400" absoluteBounds="3.625, 2.875, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Przelewy" />
+      <nestedChildShapes>
+        <elementListCompartment Id="1ce83864-10d3-445c-ba16-bb764afdbee1" absoluteBounds="3.6399999999999997, 3.335, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="84cf9b2e-3f75-4f42-b9f8-eac7184e4913" absoluteBounds="6, 9.125, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Rodzaje_kredytów" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7c2d53d3-2be5-4128-b1f7-84098189b301" absoluteBounds="6.0150000000000006, 9.585, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c85c6738-0af9-4e2f-98bf-d23a6813ccd6" absoluteBounds="0.875, 9.375, 2, 2.3478011067708344">
+      <DataClassMoniker Name="/LINQBazaBankDataContext/Rodzaje_lokat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2db853ea-0306-4920-ab14-0c72ccebaa9c" absoluteBounds="0.89000000000000012, 9.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 7.04890055338542); (6.375 : 7.04890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Klienci/Klienci_Kredyty" />
+      <nodes>
+        <classShapeMoniker Id="0f118b7c-6ded-45bb-9ec7-653a8a150475" />
+        <classShapeMoniker Id="9654e83d-38b3-4b34-92fd-e582603bda57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 7.79890055338542); (2.75 : 7.79890055338542)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Klienci/Klienci_Lokaty" />
+      <nodes>
+        <classShapeMoniker Id="0f118b7c-6ded-45bb-9ec7-653a8a150475" />
+        <classShapeMoniker Id="3868b004-0035-40c0-bfb7-d6ab25f09348" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 11.8838525390625); (8.21875 : 11.8838525390625); (8.21875 : 8.22280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Pracownicy/Pracownicy_Kredyty" />
+      <nodes>
+        <classShapeMoniker Id="b038746e-c393-42d5-84d3-c08bff8c66ec" />
+        <classShapeMoniker Id="9654e83d-38b3-4b34-92fd-e582603bda57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 12.0088525390625); (0.78125 : 12.0088525390625); (0.78125 : 8.97280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Pracownicy/Pracownicy_Lokaty" />
+      <nodes>
+        <classShapeMoniker Id="b038746e-c393-42d5-84d3-c08bff8c66ec" />
+        <classShapeMoniker Id="3868b004-0035-40c0-bfb7-d6ab25f09348" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5625 : 5.875); (4.5625 : 5.22280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Klienci/Klienci_Przelewy" />
+      <nodes>
+        <classShapeMoniker Id="0f118b7c-6ded-45bb-9ec7-653a8a150475" />
+        <classShapeMoniker Id="9ee670e0-f7ea-4e24-b8ae-bb0eb337e400" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.1875 : 9.125); (7.1875 : 8.22280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Rodzaje_kredytów/Rodzaje_kredytów_Kredyty" />
+      <nodes>
+        <classShapeMoniker Id="84cf9b2e-3f75-4f42-b9f8-eac7184e4913" />
+        <classShapeMoniker Id="9654e83d-38b3-4b34-92fd-e582603bda57" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 10.4864005533854); (6 : 10.4864005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Pracownicy/Pracownicy_Rodzaje_kredytów" />
+      <nodes>
+        <classShapeMoniker Id="b038746e-c393-42d5-84d3-c08bff8c66ec" />
+        <classShapeMoniker Id="84cf9b2e-3f75-4f42-b9f8-eac7184e4913" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(1.8125 : 9.375); (1.8125 : 8.97280110677083)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Rodzaje_lokat/Rodzaje_lokat_Lokaty" />
+      <nodes>
+        <classShapeMoniker Id="c85c6738-0af9-4e2f-98bf-d23a6813ccd6" />
+        <classShapeMoniker Id="3868b004-0035-40c0-bfb7-d6ab25f09348" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.5 : 10.6114005533854); (2.875 : 10.6114005533854)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LINQBazaBankDataContext/Pracownicy/Pracownicy_Rodzaje_lokat" />
+      <nodes>
+        <classShapeMoniker Id="b038746e-c393-42d5-84d3-c08bff8c66ec" />
+        <classShapeMoniker Id="c85c6738-0af9-4e2f-98bf-d23a6813ccd6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

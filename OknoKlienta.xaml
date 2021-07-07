@@ -1,0 +1,330 @@
+﻿<Window x:Class="WpfApplication1.OknoKlienta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplication1"
+        mc:Ignorable="d"
+        Title="OknoKlienta"  Height="auto" Width="1600"  
+       
+    Background="LightGray" 
+        WindowState="Maximized"
+        BorderThickness="3" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="25"/>
+
+        </Style>
+        <Style TargetType="PasswordBox">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Height" Value="25"/>
+
+        </Style>
+        <Style TargetType="Button" >
+
+            <Setter Property="FontSize" Value="20"/>
+
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="30" />
+
+        </Style>
+        <Style TargetType="GroupBox">
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="LightGray"/>
+
+        </Style>
+        <Style TargetType="DataGrid">
+            <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
+
+            <Setter Property="Width" Value="1550"/>
+           
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="RowBackground" Value="LightYellow"/>
+            <Setter Property="AlternatingRowBackground" Value="LightBlue"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="Cell"/>
+            <Setter Property="AutoGenerateColumns" Value="False"/>
+
+            <Setter Property="CanUserResizeColumns" Value="False"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ColumnWidth" Value="120*"/>
+
+            <Setter Property="CanUserResizeRows" Value="False"/>
+        </Style>
+
+        <Style TargetType="Label" >
+            <Setter Property="Width" Value="100" />
+            <Setter Property="Height" Value="40" />
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+
+        <Style TargetType="ColumnDefinition" >
+
+
+            <Setter Property="Width"  Value="150* "/>
+
+        </Style>
+        <Style TargetType="RowDefinition" >
+
+
+            <Setter Property="Height"  Value=" 50"/>
+
+        </Style>
+
+    </Window.Resources>
+
+
+    <DockPanel >
+            <Grid DockPanel.Dock="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+
+                </Grid.RowDefinitions>
+                <Label Content="SKOK Olsena" FontSize="25" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Width="300"/>
+                  <Button x:Name="buttonWyloguj" Content="Wyloguj" Grid.Column="2" Grid.Row="1"  Click="button_Click_wyloguj" HorizontalAlignment="Center"  />
+                <Button x:Name="buttonWyjdd" Content="Wyjdź"    Grid.Column="2" Grid.Row="1" Click="button_Click_wyjdz" HorizontalAlignment="Right" Margin="0,0,50,0" />
+            </Grid>
+
+            <TabControl DockPanel.Dock="Bottom" HorizontalAlignment="Stretch">
+            <TabItem Header="Konto" Width="150" FontSize="20" GotFocus="FocusKonto">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                    <Label Name="DaneKlienta"  DockPanel.Dock="Top" Content="Dane Klienta" Tag="Klienci" Width="300" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                    <DataGrid Grid.Row="1" Name="dataGridKlient" DockPanel.Dock="Top" VerticalAlignment="Stretch">
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True"  >
+
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="DodgerBlue" Offset="1"/>
+                                                    <GradientStop Color="White" Offset="0"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns >
+
+
+                            <DataGridTextColumn Header="ID"  MinWidth="20" MaxWidth="50" Width="20*" Binding="{Binding Id_klienta }" />
+                            <DataGridTextColumn Header="Imię"  MinWidth="75"  Width="75*" Binding="{Binding Imię}" />
+                            <DataGridTextColumn Header="Nazwisko"  MinWidth="75"  Width="75*" Binding="{Binding Nazwisko}"/>
+                            <DataGridTextColumn Header="Telefon"  MinWidth="75"  Width="75*" Binding="{Binding Telefon}"/>
+                            <DataGridTextColumn Header="Miasto"  MinWidth="75"  Width="75*" Binding="{Binding Miasto}"/>
+                            <DataGridTextColumn Header="Ulica"  MinWidth="75"  Width="75*" Binding="{Binding Ulica}"/>
+                            <DataGridTextColumn Header="Środki"  MinWidth="75"  Width="75*" Binding="{Binding Środki}"/>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                </DockPanel>
+              
+
+
+
+
+
+            </TabItem>
+            <TabItem Header="Kredyty" Width="150" FontSize="20">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+
+
+                    <Label x:Name="LabelKredyty" Tag="Kredyty" DockPanel.Dock="Top" Content="Kredyty" Width="300" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                    <DataGrid  Name="dataGridKlienciKredyt" DockPanel.Dock="Top"  VerticalAlignment="Stretch">
+
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True"  >
+
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="DodgerBlue" Offset="1"/>
+                                                    <GradientStop Color="White" Offset="0"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="ID"  MinWidth="20" MaxWidth="50" Width="30" Binding="{Binding Id_Kredytu}" />
+                            <DataGridTextColumn Header="Nazwa"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_kredytów.Nazwa}"/>
+
+                            <DataGridTextColumn Header="Nazwisko klienta"  MinWidth="75"  Width="75*" Binding="{Binding Klienci.Nazwisko}"/>
+                            <DataGridTextColumn Header="Imię klienta"  MinWidth="75"  Width="75*" Binding="{Binding Klienci.Imię}"/>
+                            <DataGridTextColumn Header="Kwota kredytu"  MinWidth="75"  Width="75*" Binding="{Binding Kwota_kredytu}" />
+                            <DataGridTextColumn Header="Oprocentowanie"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_kredytów.Oprocentowanie}"/>
+                            <DataGridTextColumn Header="Prowizja"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_kredytów.Prowizja}"/>
+                            <DataGridTextColumn Header="Okres"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_kredytów.Okres_kredytowania_w_mies__}"/>
+                            <DataGridTextColumn Header="Data założenia" Width="75*"  Binding="{Binding Data_założenia}"/>
+
+
+
+                            <DataGridTextColumn Header="Nazwisko pracownika"  MinWidth="75"  Width="75*" Binding="{Binding Pracownicy.Nazwisko_pracownika}" />
+                            <DataGridTextColumn Header="Imię pracownika"  MinWidth="75"  Width="75*" Binding="{Binding Pracownicy.Imię_pracownika}"/>
+
+
+
+                        </DataGrid.Columns>
+
+
+
+                    </DataGrid>
+
+
+
+                </DockPanel>
+
+            </TabItem>
+            <TabItem Header="Lokaty" Width="150" FontSize="20">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+
+
+
+
+
+                    <Label x:Name="lokaty" DockPanel.Dock="Top"  Content="Lokaty" Width="300" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+
+
+                    <DataGrid  Name="dataGridKlienciLokata" DockPanel.Dock="Top"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" >
+
+                        <DataGrid.CellStyle>
+                            <Style TargetType="DataGridCell">
+                                <Style.Triggers>
+                                    <Trigger Property="IsSelected" Value="True"  >
+
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                    <GradientStop Color="DodgerBlue" Offset="1"/>
+                                                    <GradientStop Color="White" Offset="0"/>
+                                                </LinearGradientBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                        <Setter Property="Foreground" Value="Black" />
+                                        <Setter Property="BorderThickness" Value="0" />
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.CellStyle>
+                        <DataGrid.Columns>
+
+                            <DataGridTextColumn Header="ID"  MinWidth="20" MaxWidth="50" Width="20*" Binding="{Binding Id_Lokaty }" />
+                            <DataGridTextColumn Header="Nazwa"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_lokat.Nazwa}" />
+                            <DataGridTextColumn Header="Nazwisko"  MinWidth="75"  Width="75*" Binding="{Binding Klienci.Nazwisko}"/>
+                            <DataGridTextColumn Header="Imię"  MinWidth="75"  Width="75*" Binding="{Binding Klienci.Imię}"/>
+                            <DataGridTextColumn Header="Kwota"  MinWidth="75"  Width="75*" Binding="{Binding Wysokość_lokaty}"/>
+                            <DataGridTextColumn Header="Oprocentowanie"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_lokat.Oprocentowanie}"/>
+                            <DataGridTextColumn Header="Prowizja"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_lokat.Prowizja}"/>
+
+                            <DataGridTextColumn Header="Okres"  MinWidth="75"  Width="75*" Binding="{Binding Rodzaje_lokat.Okres_w_mies__}"/>
+                            <DataGridTextColumn Header="Data założenia" Width="75*"  Binding="{Binding Data_założenia}"/>
+
+
+
+                            <DataGridTextColumn Header="Nazwisko pracownika"  MinWidth="75"  Width="75*" Binding="{Binding Pracownicy.Nazwisko_pracownika}" />
+                            <DataGridTextColumn Header="Imię pracownika"  MinWidth="75"  Width="75*" Binding="{Binding Pracownicy.Imię_pracownika}"/>
+
+
+
+                        </DataGrid.Columns>
+
+
+
+                    </DataGrid>
+
+
+
+                </DockPanel>
+
+            </TabItem>
+            <TabItem Header="Przelewy" Width="150" FontSize="20">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+
+                 
+                        <Button Content="Zrób Przelew" Name="ButtonPrzelew" DockPanel.Dock="Top" HorizontalAlignment="Right" Width="200" Click="ButtonPrzelewClick"  />
+
+                        <Label Name="TabelaPrzelewow"  DockPanel.Dock="Top" Content="Przelewy" Tag="Przelew"  Width="300" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
+                        <DataGrid  Name="dataGridKlienciPrzelew" DockPanel.Dock="Top" VerticalAlignment="Stretch" >
+
+                            <DataGrid.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True"  >
+
+                                            <Setter Property="Background">
+                                                <Setter.Value>
+                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                        <GradientStop Color="DodgerBlue" Offset="1"/>
+                                                        <GradientStop Color="White" Offset="0"/>
+                                                    </LinearGradientBrush>
+                                                </Setter.Value>
+                                            </Setter>
+                                            <Setter Property="Foreground" Value="Black" />
+                                            <Setter Property="BorderThickness" Value="0" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.CellStyle>
+                            <DataGrid.Columns >
+
+                            <DataGridTextColumn Header="ID"  MinWidth="20" MaxWidth="50" Width="20*" Binding="{Binding Id_Przelewu }" />
+                                <DataGridTextColumn Header="Kwota przelewu"  MinWidth="75"  Width="75*" Binding="{Binding Kwota}" />
+                                <DataGridTextColumn Header="Odbiorca"  MinWidth="75"  Width="75*" Binding="{Binding Nazwa_odbiorcy}"/>
+                            <DataGridTextColumn Header="Rachunek Ordbiorcy"  MinWidth="75"  Width="75*" Binding="{Binding Numer_rachunku_odbiorcy}"/>
+                            <DataGridTextColumn Header="Tytułem"  MinWidth="75"  Width="75*" Binding="{Binding Tytuł_przelewu}"/>
+                                <DataGridTextColumn Header="Data"  MinWidth="75"  Width="75*" Binding="{Binding Data}"/>
+                                <DataGridTextColumn Header="Nazwisko Nadawcy"  MinWidth="75" Width="75*" Binding="{Binding Klienci.Nazwisko }" />
+                                <DataGridTextColumn Header="Imię Nadawcy"  MinWidth="75"  Width="75*" Binding="{Binding Klienci.Imię}" />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+
+                
+                </DockPanel>
+            </TabItem>
+            </TabControl>
+
+        </DockPanel>
+  
+</Window>
