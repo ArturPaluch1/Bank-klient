@@ -42,7 +42,7 @@ select new { c.Id_klienta, c.Imię, c.Nazwisko, c.Password,c.aktywny };
             bool zalogowany = false;
                 foreach (var item in zapytanie)
                 {
-                    if (item.Imię.TrimEnd().Equals(textBoxImie.Text) && item.Nazwisko.TrimEnd().Equals(textBoxNazwisko.Text) && item.Password.TrimEnd().Equals(PasswordBox.Password)&&item.aktywny!=false)
+                    if (item.Imię.TrimEnd().Equals(textBoxImie.Text.TrimEnd()) && item.Nazwisko.TrimEnd().Equals(textBoxNazwisko.Text.TrimEnd()) && item.Password.TrimEnd().Equals(PasswordBox.Password.TrimEnd()) &&item.aktywny!=false)
                     {
                         OknoKlienta okno1 = new OknoKlienta(item.Id_klienta);
                     zalogowany = true;
