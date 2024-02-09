@@ -35,37 +35,43 @@ namespace WpfApplication1
         }
         private void zalogujButtonClick(object sender, RoutedEventArgs e)
         {
-            var zapytanie =
-from c in dc.Klienci
-select new { c.Id_klienta, c.Imię, c.Nazwisko, c.Password,c.aktywny };
+            try
+            {
+                Klienci zalogowanyKlient = dc.Klienci.ToList().Where(
+                 a => textBoxImie.Text.TrimEnd().ToLower() == a.Imię.TrimEnd().ToLower()
+                 && textBoxNazwisko.Text.TrimEnd().ToLower().Equals(a.Nazwisko.TrimEnd().ToLower())
+                 && PasswordBox.Password.TrimEnd().Equals(a.Password.TrimEnd()
+                 )
+                     ).FirstOrDefault();
 
-            bool zalogowany = false;
-                foreach (var item in zapytanie)
+                if (zalogowanyKlient != null)
                 {
-                    if (item.Imię.TrimEnd().Equals(textBoxImie.Text.TrimEnd()) && item.Nazwisko.TrimEnd().Equals(textBoxNazwisko.Text.TrimEnd()) && item.Password.TrimEnd().Equals(PasswordBox.Password.TrimEnd()) &&item.aktywny!=false)
+
+                    if (zalogowanyKlient.aktywny == true)
                     {
-                        OknoKlienta okno1 = new OknoKlienta(item.Id_klienta);
-                    zalogowany = true;
+                        OknoKlienta okno1 = new OknoKlienta((zalogowanyKlient as Klienci).Id_klienta);
                         okno1.Show();
                         this.Close();
-
-
                     }
+                    else
+                    {
+                        MessageBox.Show("Podany klient jest nieaktywny");
+                    }
+
+
                 }
-           if(zalogowany.Equals(false))
-                MessageBox.Show("Nieprawidłowe dane logowania.");
+                else
+                {
+                    MessageBox.Show("Błędne dane logowania");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Błąd logowania do bazy danych.");
 
-            
+            }
 
-
-
-            
-           
-    
-
-
-
-
+          
 
         }
 
